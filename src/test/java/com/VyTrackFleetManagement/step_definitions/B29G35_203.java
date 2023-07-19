@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 
-public class VehicleModelsStepDefs {
+public class B29G35_203 {
 
     VehicleModelsPage_AndrewB vehicleModelsPage = new VehicleModelsPage_AndrewB();
 
