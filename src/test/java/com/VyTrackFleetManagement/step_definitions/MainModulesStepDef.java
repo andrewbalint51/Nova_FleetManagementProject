@@ -9,7 +9,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,17 +49,15 @@ public class MainModulesStepDef {
     @Then("user should be able to see following modules")
     public void user_should_be_able_to_see_following_modules(List<String> expectedModules) {
         List<String> actualModules = new ArrayList<>();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         for(WebElement eachModules : mainModulesPage.allTopModules){
+            wait.until(ExpectedConditions.visibilityOf(eachModules));
+            actualModules.add(eachModules.getText().trim());
 
-            actualModules.add(eachModules.getTagName());
 
-
-
-            Assert.assertTrue(expectedModules.size()== actualModules.size());
         }
 
-
-
+       Assert.assertEquals(expectedModules, actualModules);
 
 
 

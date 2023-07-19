@@ -16,7 +16,7 @@ Feature: As a user, I should be accessing all the main modules of hte app
 
   @B29G35-216
   Scenario: Verify that store manager should see 8 module names
-   When user logged in as "store manager"
+   When user logged in as "storeManager"
     Then user should be able to see following modules
       | Dashboards         |
       | Fleet              |
@@ -30,7 +30,7 @@ Feature: As a user, I should be accessing all the main modules of hte app
 
   @B29G35-217
   Scenario: Verify that sales manager should see 8 module names
-    When user logged in as "sales manager"
+    When user logged in as "salesManager"
     Then user should be able to see following modules
 
       | Dashboards         |
