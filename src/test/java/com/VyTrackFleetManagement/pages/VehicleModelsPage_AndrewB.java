@@ -14,6 +14,6 @@ public class VehicleModelsPage_AndrewB extends BasePage{
     }
 
 
-    @FindBy (xpath = "//tbody/tr[@class='grid-row row-click-action']")
-    public List<WebElement> tableRows;
+    @FindBy (xpath = "//span[@class='grid-header-cell__label']")
+    public List<WebElement> tableColumns;
 }

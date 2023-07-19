@@ -46,8 +46,9 @@ public class B29G35_203 {
         //Wait until the loader screen disappears
         vehicleModelsPage.waitUntilLoaderScreenDisappear();
 
-        //Assert that the table shows the appropriate amount of rows
-        Assert.assertTrue(vehicleModelsPage.tableRows.size()== int1);
+        //Assert that the table shows the appropriate amount of columns (divide by two,
+        //as there are two versions of each column header)
+        Assert.assertTrue(vehicleModelsPage.tableColumns.size()/2== int1);
     }
 
 
