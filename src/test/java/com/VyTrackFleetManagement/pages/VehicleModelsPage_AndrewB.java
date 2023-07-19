@@ -5,12 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ManagerHomePageAB extends BasePage{
+import java.util.List;
 
-    public ManagerHomePageAB(){
+public class VehicleModelsPage_AndrewB extends BasePage{
+
+    public VehicleModelsPage_AndrewB(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(linkText = "/entity/Extend_Entity_VehiclesModel")
-    public WebElement vehicleModelsButton;
+
+    @FindBy (xpath = "//tbody/tr[@class='grid-row row-click-action']")
+    public List<WebElement> tableRows;
 }
