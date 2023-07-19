@@ -11,6 +11,6 @@ public class ManagerHomePageAB extends BasePage{
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "span[.='Vehicles Model']")
+    @FindBy(linkText = "/entity/Extend_Entity_VehiclesModel")
     public WebElement vehicleModelsButton;
 }

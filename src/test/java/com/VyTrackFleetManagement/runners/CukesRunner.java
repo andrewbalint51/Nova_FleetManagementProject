@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/VyTrackFleetManagement/step_definitions",
         dryRun = false,
-        tags = " @B29G35-227",
+        tags = "@B29G35-224",
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
