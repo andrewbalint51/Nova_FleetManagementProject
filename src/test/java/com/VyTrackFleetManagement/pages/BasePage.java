@@ -19,14 +19,24 @@ import java.util.List;
 
 public abstract class BasePage {
 
+    //List of menu options
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
+
+    //"Fleet" menu option
     @FindBy(xpath = "//li[@class='dropdown dropdown-level-1']/a/span[contains(text(),'Fleet')]")
     public WebElement menuOptionsFleet_AndreyN;
+
+    //Vehicles Button
     @FindBy(xpath = "//span[text()=\"Vehicles\"]")
     public WebElement vehiclesOption_AndreyN;
 
+    //Vehicles Model Button
+    @FindBy(xpath = "//span[text()=\"Vehicles Model\"]")
+    public WebElement vehicleModelsButton_AndrewB;
 
+
+    //Loading page circle
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
     protected WebElement loaderMask;
@@ -42,6 +52,10 @@ public abstract class BasePage {
 
     @FindBy(linkText = "My User")
     public WebElement myUser;
+
+    //'You do not have permission to perform this action.' Error message
+    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
+    public WebElement permissionsErrorMessage;
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -66,7 +80,7 @@ public abstract class BasePage {
      */
     public void waitUntilLoaderScreenDisappear() {
         try {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
             wait.until(ExpectedConditions.invisibilityOf(loaderMask));
         } catch (Exception e) {
             e.printStackTrace();
