@@ -21,6 +21,11 @@ public abstract class BasePage {
 
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
+    @FindBy(xpath = "//li[@class='dropdown dropdown-level-1']/a/span[contains(text(),'Fleet')]")
+    public WebElement menuOptionsFleet_AndreyN;
+    @FindBy(xpath = "//span[text()=\"Vehicles\"]")
+    public WebElement vehiclesOption_AndreyN;
+
 
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
