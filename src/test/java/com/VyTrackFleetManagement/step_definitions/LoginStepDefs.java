@@ -2,6 +2,7 @@ package com.VyTrackFleetManagement.step_definitions;
 
 import com.VyTrackFleetManagement.pages.LoginPage;
 import com.VyTrackFleetManagement.utilities.ConfigurationReader;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 public class LoginStepDefs {
 
@@ -20,10 +21,10 @@ public class LoginStepDefs {
         if(userType.equalsIgnoreCase("driver")){
             username = ConfigurationReader.getProperty("driver_username");
             password = ConfigurationReader.getProperty("driver_password");
-        }else if(userType.equalsIgnoreCase("sales manager")){
+        }else if(userType.equalsIgnoreCase("salesManager")){
             username = ConfigurationReader.getProperty("sales_manager_username");
             password = ConfigurationReader.getProperty("sales_manager_password");
-        }else if(userType.equalsIgnoreCase("store manager")){
+        }else if(userType.equalsIgnoreCase("storeManager")){
             username = ConfigurationReader.getProperty("store_manager_username");
             password = ConfigurationReader.getProperty("store_manager_password");
         }
@@ -33,6 +34,12 @@ public class LoginStepDefs {
 
     @Given("the user logged in with username as {string} and password as {string}")
     public void the_user_logged_in_with_username_as_and_password_as(String username, String password) {
+        LoginPage loginPage=new LoginPage();
+        loginPage.login(username,password);
+    }
+
+    @And("user logged in with username as {string} and password as {string}")
+    public void user_logged_in_with_username_as_and_password_as(String username, String password) {
         LoginPage loginPage=new LoginPage();
         loginPage.login(username,password);
     }

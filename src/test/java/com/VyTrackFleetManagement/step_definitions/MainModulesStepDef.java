@@ -2,7 +2,9 @@ package com.VyTrackFleetManagement.step_definitions;
 
 import com.VyTrackFleetManagement.pages.LoginPage;
 import com.VyTrackFleetManagement.pages.MainModulesPage;
+import com.VyTrackFleetManagement.utilities.ConfigurationReader;
 import com.VyTrackFleetManagement.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -14,54 +16,54 @@ import java.util.List;
 public class MainModulesStepDef {
 
     LoginPage login = new LoginPage();
-    MainModulesPage main = new MainModulesPage();
-
-    @When("user loggs in as a storemanager")
-    public void userLoggsInAsAStoremanager() {
-    }
-    @When("User enters valid credentials")
-    public void user_enters_valid_credentials() {
-        login.userName.sendKeys("storemanger51");
-        login.password.sendKeys("UserUser123");
+    MainModulesPage mainModulesPage = new MainModulesPage();
+    ConfigurationReader configurationReader = new ConfigurationReader();
 
 
-    }
+    @Given("user logged in as {string}")
+    public void user_logged_in_as(String userType) {
 
-    @When("User clicks Login button")
-    public void user_clicks_login_button() {
-        login.submit.click();
+        //based on input enter that user information
+        String username =null;
+        String password =null;
 
-    }
-
-    @Then("Verify the users see module names")
-    public void verify_the_users_see_module_names(List<String> listOfModuleNames) {
-        //System.out.println("listOfModuleNames: " + listOfModuleNames);
-      // String expectedModelNames = "Dashboards, Fleet, Customers, Sales, Activities, Marketing, Reports & Segments, System";
-       // String actualModuleNames = Driver.getDriver().getTitle();
-        List<WebElement> menuList= main.menuOptions;
-        System.out.println("listOfModuleNames: " + listOfModuleNames);
-       // System.out.println("menuList = " + menuList);
-        List<String> actualList = new ArrayList<>();
-        for(WebElement each : menuList){
-            actualList.add(each.getText()) ;
-
+        if(userType.equalsIgnoreCase("driver")){
+            username = ConfigurationReader.getProperty("driver_username");
+            password = ConfigurationReader.getProperty("driver_password");
+        }else if(userType.equalsIgnoreCase("salesManager")){
+            username = ConfigurationReader.getProperty("sales_manager_username");
+            password = ConfigurationReader.getProperty("sales_manager_password");
+        }else if(userType.equalsIgnoreCase("storeManager")){
+            username = ConfigurationReader.getProperty("store_manager_username");
+            password = ConfigurationReader.getProperty("store_manager_password");
         }
-        System.out.println("actualList = " + actualList);
-        Assert.assertEquals(actualList, listOfModuleNames);
+        //send username and password and login
+        new LoginPage().login(username,password);
 
     }
 
-    @Then("user should see main module names")
-    public void userShouldSeeMainModuleNames() {
+
+    @Then("user should be able to see following modules")
+    public void user_should_be_able_to_see_following_modules(List<String> expectedModules) {
+        List<String> actualModules = new ArrayList<>();
+        for(WebElement eachModules : mainModulesPage.allTopModules){
+
+            actualModules.add(eachModules.getTagName());
+
+
+
+            Assert.assertTrue(expectedModules.size()== actualModules.size());
+        }
+
+
+
+
+
 
     }
-
-    @When("user loggs in as a {string}")
-    public void userLoggsInAsA(String storemanager) {
-    }
-
-
 }
+
+
 
 
 
