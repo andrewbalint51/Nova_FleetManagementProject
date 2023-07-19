@@ -38,6 +38,9 @@ public abstract class BasePage {
     @FindBy(linkText = "My User")
     public WebElement myUser;
 
+    @FindBy(xpath = "//div[.='You do not have permission to perform this action.']")
+    public WebElement permissionsErrorMessage;
+
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
