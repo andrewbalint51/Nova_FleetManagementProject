@@ -35,6 +35,10 @@ public abstract class BasePage {
     @FindBy(xpath = "//span[text()=\"Vehicles Model\"]")
     public WebElement vehicleModelsButton_AndrewB;
 
+    //Activities menu option
+    @FindBy(xpath = "(//span[@class='title title-level-1'])[3]")
+    public WebElement menuOptionActivities_ChristinaG;
+
 
     //Loading page circle
     @FindBy(css = "div[class='loader-mask shown']")
