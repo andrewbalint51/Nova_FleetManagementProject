@@ -22,7 +22,7 @@ public class MainModulesStepDef {
     MainModulesPage mainModulesPage = new MainModulesPage();
     ConfigurationReader configurationReader = new ConfigurationReader();
 
-
+/*
     @Given("user logged in as {string}")
     public void user_logged_in_as(String userType) {
 
@@ -33,10 +33,10 @@ public class MainModulesStepDef {
         if(userType.equalsIgnoreCase("driver")){
             username = ConfigurationReader.getProperty("driver_username");
             password = ConfigurationReader.getProperty("driver_password");
-        }else if(userType.equalsIgnoreCase("salesManager")){
+        }else if(userType.equalsIgnoreCase("sales manager")){
             username = ConfigurationReader.getProperty("sales_manager_username");
             password = ConfigurationReader.getProperty("sales_manager_password");
-        }else if(userType.equalsIgnoreCase("storeManager")){
+        }else if(userType.equalsIgnoreCase("store manager")){
             username = ConfigurationReader.getProperty("store_manager_username");
             password = ConfigurationReader.getProperty("store_manager_password");
         }
@@ -44,6 +44,10 @@ public class MainModulesStepDef {
         new LoginPage().login(username,password);
 
     }
+
+ */
+
+
 
 
     @Then("user should be able to see following modules")

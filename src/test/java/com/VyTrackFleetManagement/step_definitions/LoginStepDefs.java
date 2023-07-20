@@ -21,10 +21,10 @@ public class LoginStepDefs {
         if(userType.equalsIgnoreCase("driver")){
             username = ConfigurationReader.getProperty("driver_username");
             password = ConfigurationReader.getProperty("driver_password");
-        }else if(userType.equalsIgnoreCase("salesManager")){
+        }else if(userType.equalsIgnoreCase("sales manager")){
             username = ConfigurationReader.getProperty("sales_manager_username");
             password = ConfigurationReader.getProperty("sales_manager_password");
-        }else if(userType.equalsIgnoreCase("storeManager")){
+        }else if(userType.equalsIgnoreCase("store manager")){
             username = ConfigurationReader.getProperty("store_manager_username");
             password = ConfigurationReader.getProperty("store_manager_password");
         }
