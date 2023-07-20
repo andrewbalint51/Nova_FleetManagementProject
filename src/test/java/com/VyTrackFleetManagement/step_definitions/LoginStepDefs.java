@@ -2,7 +2,7 @@ package com.VyTrackFleetManagement.step_definitions;
 
 import com.VyTrackFleetManagement.pages.LoginPage;
 import com.VyTrackFleetManagement.utilities.ConfigurationReader;
-import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Given;
 public class LoginStepDefs {
 
@@ -38,11 +38,7 @@ public class LoginStepDefs {
         loginPage.login(username,password);
     }
 
-    @And("user logged in with username as {string} and password as {string}")
-    public void user_logged_in_with_username_as_and_password_as(String username, String password) {
-        LoginPage loginPage=new LoginPage();
-        loginPage.login(username,password);
-    }
+
 
 
 
