@@ -1,7 +1,7 @@
 @B29G35-207
 Feature: As a user, I should see error messages when I enter an invalid integer into the calendar repeat day input box.
 
-
+  @B29G35-244
   Scenario Outline: users see error messages for entering invalid integers.
     Given User is logged in using "<validUsername>" and a "<validPassword>"
     When User navigates to "Activities" and clicks "Calendar Events"
