@@ -1,12 +1,12 @@
 @B29G35-230
-Feature: Default
+Feature: Verify  users should able to manage filters on the Vehicle Costs page.
 
 	#{color:#de350b}*AC #1:* ** {color}Users should see 3 columns on the Vehicle Model page.
 	#
 	# __ Expected Column names: ** TYPE, TOTAL PRICE, DATE
   @B29G35-222
 
-  Scenario Outline: Verify  users should able to manage filters on the Vehicle Costs page.
+  Scenario Outline: Users should see 3 columns on the Vehicle Model page.
     Given the user logged in as "<UserType>"
     When User goes to the Vehicle Costs option
     Then User should see three columns on the Vehicle Costs page
