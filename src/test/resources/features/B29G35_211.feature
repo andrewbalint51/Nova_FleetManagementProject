@@ -25,7 +25,7 @@ Feature: Verify  users should able to manage filters on the Vehicle Costs page.
 	#{color:#de350b}*AC #2:*   {color:#172b4d}U{color}{color}sers check the first checkbox to check all the Vehicle Costs  
   @B29G35-223
 
-  Scenario Outline: Users checks first checkbox to check all the Vehicle Costs
+  Scenario Outline: Sales and store managers check first checkbox to check all the Vehicle Costs
     Given the user logged in as "<UserType>"
     When User goes to the Vehicle Costs option
     And Checks the first checkbox
