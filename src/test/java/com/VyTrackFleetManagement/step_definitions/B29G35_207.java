@@ -28,17 +28,20 @@ public class B29G35_207 {
     }
     @When("Clicks the \"Create Calendar Event\" button")
     public void clicks_the_button() {
-        BrowserUtils.waitForVisibility(calendarEventsPage.createCalendarEventButton, 10);
+        calendarEventsPage.waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(calendarEventsPage.createCalendarEventButton, 10);
         calendarEventsPage.createCalendarEventButton.click();
     }
     @When("Checks the \"Repeat\" checkbox")
     public void checks_the_checkbox() {
-        BrowserUtils.waitForVisibility(calendarEventsPage.repeatEventCheckBox, 10);
+        calendarEventsPage.waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(calendarEventsPage.repeatEventCheckBox, 10);
         calendarEventsPage.repeatEventCheckBox.click();
     }
     @When("User enters {string}")
     public void user_enters(String string) {
-        BrowserUtils.waitForVisibility(calendarEventsPage.dayRepeatInputBox, 10);
+        calendarEventsPage.waitUntilLoaderScreenDisappear();
+        BrowserUtils.waitForClickablility(calendarEventsPage.dayRepeatInputBox, 10);
         calendarEventsPage.dayRepeatInputBox.sendKeys(Keys.BACK_SPACE);
         calendarEventsPage.dayRepeatInputBox.sendKeys(string + Keys.ENTER);
     }
