@@ -47,6 +47,7 @@ public class B29G35_207 {
     }
     @Then("{string} is displayed")
     public void is_displayed(String string) {
+        calendarEventsPage.waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForVisibility(calendarEventsPage.invalidIntErrorMessage, 10);
         Assert.assertEquals(string, calendarEventsPage.invalidIntErrorMessage.getText());
     }
