@@ -45,7 +45,7 @@ public class B29G35_211 {
 
     @When("Checks the first checkbox")
     public void checks_the_first_checkbox() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.firstCheckbox));
         vehiclePageNC.firstCheckbox.click();
     }

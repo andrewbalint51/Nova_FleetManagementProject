@@ -1,4 +1,5 @@
 package com.VyTrackFleetManagement.runners;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -15,12 +16,11 @@ import org.junit.runner.RunWith;
         glue = "com/VyTrackFleetManagement/step_definitions",
         dryRun = false,
 
-      
 
-
-        tags = "@B29G35-221",
+        tags = "@B29G35-223",
 
 
         publish = true //generating a report with public link
 )
-public class CukesRunner {}
+public class CukesRunner {
+}
