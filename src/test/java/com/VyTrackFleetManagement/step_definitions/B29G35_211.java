@@ -17,12 +17,13 @@ import java.util.List;
 
 public class B29G35_211 {
     VehiclePageNC vehiclePageNC = new VehiclePageNC();
-    LoginPage loginPage = new LoginPage();
+
 
 
     @When("User goes to the Vehicle Costs option")
     public void user_goes_to_the_vehicle_costs_option() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.fleetModule));
         BrowserUtils.hover(vehiclePageNC.fleetModule);
 
         vehiclePageNC.vehicleCost.click();
@@ -31,7 +32,9 @@ public class B29G35_211 {
 
     @Then("User should see three columns on the Vehicle Costs page")
     public void user_should_see_three_columns_on_the_vehicle_costs_page(List<String> columnList) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.typeHeader));
+
         List<WebElement> list = new ArrayList<>();
         List<String> actualList = new ArrayList<>();
         list.add(vehiclePageNC.typeHeader);
