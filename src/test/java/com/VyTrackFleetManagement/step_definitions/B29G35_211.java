@@ -48,7 +48,7 @@ public class B29G35_211 {
 
     @When("Checks the first checkbox")
     public void checks_the_first_checkbox() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(25));
         wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.firstCheckbox));
         vehiclePageNC.firstCheckbox.click();
     }
@@ -56,6 +56,7 @@ public class B29G35_211 {
     @Then("Users should verify that all the Vehicle costs are checked")
     public void users_should_verify_that_all_the_vehicle_costs_are_checked() {
 
+        BrowserUtils.sleep(5);
         List<WebElement> types = vehiclePageNC.checkboxes;
 
 
