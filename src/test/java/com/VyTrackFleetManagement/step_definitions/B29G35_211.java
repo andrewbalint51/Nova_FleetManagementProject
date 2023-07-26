@@ -17,12 +17,13 @@ import java.util.List;
 
 public class B29G35_211 {
     VehiclePageNC vehiclePageNC = new VehiclePageNC();
-    LoginPage loginPage = new LoginPage();
+
 
 
     @When("User goes to the Vehicle Costs option")
     public void user_goes_to_the_vehicle_costs_option() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.fleetModule));
         BrowserUtils.hover(vehiclePageNC.fleetModule);
 
         vehiclePageNC.vehicleCost.click();
@@ -31,7 +32,9 @@ public class B29G35_211 {
 
     @Then("User should see three columns on the Vehicle Costs page")
     public void user_should_see_three_columns_on_the_vehicle_costs_page(List<String> columnList) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.typeHeader));
+
         List<WebElement> list = new ArrayList<>();
         List<String> actualList = new ArrayList<>();
         list.add(vehiclePageNC.typeHeader);
@@ -45,7 +48,7 @@ public class B29G35_211 {
 
     @When("Checks the first checkbox")
     public void checks_the_first_checkbox() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(25));
         wait.until(ExpectedConditions.visibilityOf(vehiclePageNC.firstCheckbox));
         vehiclePageNC.firstCheckbox.click();
     }
@@ -53,6 +56,7 @@ public class B29G35_211 {
     @Then("Users should verify that all the Vehicle costs are checked")
     public void users_should_verify_that_all_the_vehicle_costs_are_checked() {
 
+        BrowserUtils.sleep(5);
         List<WebElement> types = vehiclePageNC.checkboxes;
 
 
